@@ -24,10 +24,10 @@ class OuiSearch:
         self.cache_expire = 86400 * 365
         try:
             if time.time() - os.stat(self.cache).st_ctime > self.cache_expire:
-                self.refresh()
+                self.update_cache()
         except OSError as err:
             if err.errno == 2:
-                self.refresh()
+                self.update_cache()
 
     def update_cache(self):
         """
