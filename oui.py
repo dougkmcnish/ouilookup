@@ -29,7 +29,7 @@ class OuiSearch:
             if err.errno == 2:
                 self.refresh()
 
-    def refresh(self):
+    def update_cache(self):
         """
         Update our local file from the IEEE OUI
         list
@@ -71,7 +71,7 @@ else:
 search = OuiSearch(q=user_input) 
 
 if sys.argv[1] == '-u':
-    search.refresh()
+    search.update_cache()
 
 if len(user_input) >=8:
     search.run()
